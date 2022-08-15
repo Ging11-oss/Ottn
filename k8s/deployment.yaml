@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ovsab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ovsab
+  template:
+    metadata:
+      labels:
+        app: ovsab
+    spec:
+      containers:
+      - image: okteto.dev/ovsab:latest
+        name: ovsab
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "cd75d72f-ad69-40ee-a0c6-58721129bee3"
+        - name: Vless_Path
+          value: "/vl5hgfd55kij"
+        - name: Vmess_UUID
+          value: "cd75d72f-ad69-40ee-a0c6-58721129bee3"
+        - name: Vmess_Path
+          value: "/vmgtft66huitt6"
+        - name: Share_Path
+          value: "/v2link"
